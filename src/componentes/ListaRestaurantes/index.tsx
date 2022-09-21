@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IPaginacao } from '../../interfaces/IPaginacao';
@@ -33,7 +34,11 @@ const ListaRestaurantes = () => {
     <h1>Os restaurantes mais <em>bacanas</em>!</h1>
     {restaurants?.map(item => <Restaurante restaurante={item} key={item.id} />)}
     {nextPage &&
-      <button onClick={getNetxPage}>Ver mais</button>
+      <Button
+        onClick={getNetxPage}
+        variant="outlined">
+        Ver mais
+      </Button>
     }
   </section>)
 }
