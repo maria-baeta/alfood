@@ -2,9 +2,7 @@ import { Button, TextField } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import Banner from "../../../componentes/Banner"
-import NavBar from "../../../componentes/NavBar"
-import Rodape from '../../../componentes/Rodape';
+import { Banner, Footer, NavBar } from "../../../componentes"
 
 export const Restaurant = () => {
   const params = useParams()
@@ -78,7 +76,7 @@ export const Restaurant = () => {
           </Button>
         </form>
       </section>
-      <Rodape />
+      <Footer />
     </>
 
   )

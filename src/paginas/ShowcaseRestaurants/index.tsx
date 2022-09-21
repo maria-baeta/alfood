@@ -1,7 +1,5 @@
-import Banner from '../../componentes/Banner';
-import ListaRestaurantes from '../../componentes/ListaRestaurantes';
-import NavBar from '../../componentes/NavBar';
-import Rodape from '../../componentes/Rodape';
+import { Banner, Footer, ListaRestaurantes, NavBar } from "../../componentes";
+
 
 export const ShowcaseRestaurants = () => {
   return (
@@ -9,7 +7,7 @@ export const ShowcaseRestaurants = () => {
       <NavBar />
       <Banner />
       <ListaRestaurantes />
-      <Rodape />
+      <Footer />
     </>
   );
 }

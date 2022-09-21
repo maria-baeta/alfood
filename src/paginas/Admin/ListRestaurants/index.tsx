@@ -3,11 +3,9 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Banner from "../../../componentes/Banner"
-import NavBar from "../../../componentes/NavBar"
-import Rodape from '../../../componentes/Rodape';
 import IRestaurante from "../../../interfaces/IRestaurante"
 import { useNavigate } from "react-router-dom";
+import { Banner, Footer, NavBar } from "../../../componentes";
 
 export const ListRestaurants = () => {
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([])
@@ -75,7 +73,7 @@ export const ListRestaurants = () => {
           </Table>
         </TableContainer>
       </section>
-      <Rodape />
+      <Footer />
     </>
 
   )
