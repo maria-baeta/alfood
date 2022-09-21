@@ -6,7 +6,7 @@ import IRestaurante from '../../interfaces/IRestaurante';
 import style from './ListaRestaurantes.module.scss';
 import Restaurante from './Restaurante';
 
-const ListaRestaurantes = () => {
+export const ListaRestaurantes = () => {
 
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([])
   const [nextPage, setNextPage] = useState('')
@@ -43,4 +43,3 @@ const ListaRestaurantes = () => {
   </section>)
 }
 
-export default ListaRestaurantes

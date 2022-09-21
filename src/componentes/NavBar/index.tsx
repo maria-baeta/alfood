@@ -1,7 +1,7 @@
 import estilos from './NavBar.module.scss';
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+export const NavBar = () => {
   return (<nav className={estilos.Link}>
     <ul>
       <li>
@@ -17,4 +17,3 @@ const NavBar = () => {
   </nav>)
 }
 
-export default NavBar
