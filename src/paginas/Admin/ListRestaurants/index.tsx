@@ -35,7 +35,7 @@ export const ListRestaurants = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar headers={['home', 'restaurants', "admin"]} />
       <Banner />
       <section>
         <Button

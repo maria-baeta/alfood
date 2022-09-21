@@ -5,7 +5,7 @@ import styles from './Home.module.scss';
 export const Home = () => {
   return (
     <>
-      <NavBar />
+      <NavBar headers={['home', 'restaurants', "admin"]} />
       <Banner />
       <div className={styles.MiniBanners}>
         <img src="/imagens/cozinhar_01.jpg" alt="Um prato conceitual" />

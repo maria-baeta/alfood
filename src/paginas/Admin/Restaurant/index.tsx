@@ -58,7 +58,7 @@ export const Restaurant = () => {
   return (
 
     <>
-      <NavBar />
+      <NavBar headers={["admin"]} />
       <Banner />
       <section>
         <form onSubmit={event => submitForm(event)}>
