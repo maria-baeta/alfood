@@ -12,7 +12,6 @@ interface RestauranteProps {
 const Restaurante = ({ restaurante }: RestauranteProps) => {
   const { id } = restaurante
   const [menu, setMenu] = useState<IPrato[]>()
-  console.log(restaurante)
 
   useEffect(() => {
     clientV1.get<IPrato[]>(`restaurantes/${id}/pratos/`)

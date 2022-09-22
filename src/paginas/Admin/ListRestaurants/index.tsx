@@ -20,7 +20,6 @@ export const ListRestaurants = () => {
   }, [])
 
   const editRestaurant = (id: number) => {
-    console.log('Editando restaurante:', id)
     navigate(`/admin/restaurantes/${id}`)
 
   }

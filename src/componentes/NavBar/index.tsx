@@ -20,7 +20,7 @@ export const NavBar = ({ headers }: any) => {
     <ul>
       {
         headers.map((header: string) => (
-          <li>
+          <li key={header}>
             {handleHeaders(header)}
           </li>
         ))

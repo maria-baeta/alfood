@@ -30,7 +30,6 @@ export const Restaurant = () => {
         })
         .catch(({ response }) => {
           const keys = Object.keys(response.data)
-          console.log(keys);
           keys.map((key) => (
             alert(`${key.toLocaleUpperCase()}: ${response.data.nome}`)
           ))
@@ -45,7 +44,6 @@ export const Restaurant = () => {
         })
         .catch(({ response }) => {
           const keys = Object.keys(response.data)
-          console.log(keys);
           keys.map((key) => (
             alert(`${key.toLocaleUpperCase()}: ${response.data.nome}`)
           ))
