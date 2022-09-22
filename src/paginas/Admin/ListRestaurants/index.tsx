@@ -1,19 +1,19 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
-import axios from "axios"
 import { useEffect, useState } from "react"
 import IRestaurante from "../../../interfaces/IRestaurante"
 import { useNavigate } from "react-router-dom";
 import { Banner, Footer, NavBar } from "../../../componentes";
 import styled from "./ListRestaurants.module.scss";
+import { clientV2 } from "../../../client";
 
 export const ListRestaurants = () => {
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([])
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/v2/restaurantes/")
+    clientV2.get("restaurantes/")
       .then(({ data }) => {
         setRestaurants(data)
       })
@@ -26,7 +26,7 @@ export const ListRestaurants = () => {
   }
 
   const deleteRestaurant = (id: number) => {
-    axios.delete(`http://0.0.0.0:8000/api/v2/restaurantes/${id}/`)
+    clientV2.delete(`restaurantes/${id}/`)
       .then(() => {
         alert('Restaurante deletado com sucesso')
         const newListRestaurants = restaurants.filter(restaurant => restaurant.id !== id)

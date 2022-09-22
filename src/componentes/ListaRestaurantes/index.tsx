@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { clientV1 } from '../../client';
 import { IPaginacao } from '../../interfaces/IPaginacao';
 import IRestaurante from '../../interfaces/IRestaurante';
 import style from './ListaRestaurantes.module.scss';
@@ -14,7 +14,7 @@ export const ListaRestaurantes = () => {
 
   useEffect(() => {
     //get dos restaurantes
-    axios.get<IPaginacao<IRestaurante>>('http://localhost:8000/api/v1/restaurantes/')
+    clientV1.get<IPaginacao<IRestaurante>>('restaurantes/')
       .then(({ data }) => {
         setRestaurants(data.results)
         setNextPage(data.next)
@@ -23,7 +23,7 @@ export const ListaRestaurantes = () => {
   }, [])
 
   const getNetxPage = () => {
-    axios.get<IPaginacao<IRestaurante>>(nextPage)
+    clientV1.get<IPaginacao<IRestaurante>>(nextPage)
       .then(({ data }) => {
         setRestaurants([...restaurants, ...data.results])
         setNextPage(data.next)
@@ -32,7 +32,7 @@ export const ListaRestaurantes = () => {
   }
 
   const searchName = () => {
-    axios.get('http://0.0.0.0:8000/api/v1/restaurantes/', {
+    clientV1.get('http://0.0.0.0:8000/api/v1/restaurantes/', {
       params: {
         search: search
       }

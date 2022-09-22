@@ -1,7 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material"
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { clientV2 } from "../../../client"
 import { Banner, NavBar } from "../../../componentes"
 
 export const Restaurant = () => {
@@ -10,7 +10,7 @@ export const Restaurant = () => {
 
   useEffect(() => {
     if (params.id) {
-      axios.get(`http://0.0.0.0:8000/api/v2/restaurantes/${params.id}/`)
+      clientV2.get(`http://0.0.0.0:8000/api/v2/restaurantes/${params.id}/`)
         .then(({ data }) => {
           setRestaurant(data.nome)
         })
@@ -22,7 +22,7 @@ export const Restaurant = () => {
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (params.id) {
-      axios.put(`http://0.0.0.0:8000/api/v2/restaurantes/${params.id}/`, {
+      clientV2.put(`restaurantes/${params.id}/`, {
         nome: restaurant
       })
         .then(() => {
@@ -37,7 +37,7 @@ export const Restaurant = () => {
         })
     } else {
 
-      axios.post('http://0.0.0.0:8000/api/v2/restaurantes/', {
+      clientV2.post('restaurantes/', {
         nome: restaurant
       })
         .then(() => {

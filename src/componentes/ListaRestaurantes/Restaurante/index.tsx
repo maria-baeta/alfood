@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { clientV1 } from '../../../client';
 import IPrato from '../../../interfaces/IPrato';
 import IRestaurante from '../../../interfaces/IRestaurante';
 import Prato from '../Prato';
@@ -15,7 +15,7 @@ const Restaurante = ({ restaurante }: RestauranteProps) => {
   console.log(restaurante)
 
   useEffect(() => {
-    axios.get<IPrato[]>(`http://localhost:8000/api/v1/restaurantes/${id}/pratos/`)
+    clientV1.get<IPrato[]>(`restaurantes/${id}/pratos/`)
       .then(({ data }) => {
         setMenu(data)
       })
