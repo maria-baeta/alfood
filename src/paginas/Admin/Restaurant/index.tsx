@@ -1,8 +1,8 @@
-import { Box, Button, TextField, Typography } from "@mui/material"
+import { Box, Button, Container, Paper, TextField, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { clientV2 } from "../../../client"
-import { Banner, NavBar } from "../../../componentes"
+import { NavBar } from "../component/NavBar"
 
 export const Restaurant = () => {
   const params = useParams()
@@ -56,43 +56,58 @@ export const Restaurant = () => {
   return (
 
     <>
-      <NavBar headers={["admin"]} />
-      <Banner />
-      <Box sx={
-        {
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: '10px'
-        }
-      }>
-        <Typography
-          component='h1'
-          variant="h6"
-        >
-          Formulário de Restaurantes
-        </Typography>
-        <Box component='form' onSubmit={event => submitForm(event)}>
-          <TextField
-            fullWidth
-            id="standard-basic"
-            label="Nome do novo restaurante"
-            onChange={event => setRestaurant(event.target.value)}
-            value={restaurant}
-            variant="standard"
-          />
-          <Button
-            type="submit"
-            variant="outlined"
-            fullWidth
-            sx={{ marginTop: "10px" }}
-          >
-            Salvar
-          </Button>
-        </Box>
+      <NavBar />
+      <Box>
+        <Container maxWidth="lg" sx={{ mt: 1 }}>
+          <Paper sx={{ p: 2 }}>
+
+            <Box sx={
+              {
+                alignItems: "center",
+                display: "flex",
+                flexDirection: "column",
+                flexGrow: 1,
+                marginTop: '10px'
+              }
+            }>
+              <Typography
+                component='h1'
+                variant="h6"
+              >
+                Formulário de Restaurantes
+              </Typography>
+              <Box
+                component='form'
+                onSubmit={event => submitForm(event)}
+                sx={
+                  {
+                    width: '100%'
+                  }
+                }
+
+              >
+                <TextField
+                  fullWidth
+                  id="standard-basic"
+                  label="Nome do novo restaurante"
+                  onChange={event => setRestaurant(event.target.value)}
+                  value={restaurant}
+                  variant="standard"
+                />
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  fullWidth
+                  sx={{ marginTop: "10px" }}
+                >
+                  Salvar
+                </Button>
+              </Box>
+            </Box>
+          </Paper>
+        </Container>
       </Box>
     </>
-
   )
 }
 
