@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Banner, Footer, NavBar } from '../../componentes';
 import styles from './Home.module.scss';
 
 export const Home = () => {
   return (
     <>
-      <NavBar headers={['home', 'restaurants', "admin"]} />
-      <Banner />
       <div className={styles.MiniBanners}>
         <img src="/imagens/cozinhar_01.jpg" alt="Um prato conceitual" />
         <div className={styles.CardCentral}>
@@ -40,7 +37,6 @@ export const Home = () => {
         <h3>Conheça os melhores restaurantes</h3>
         <p>Clique <Link to='/restaurantes'>aqui</Link></p>
       </div>
-      <Footer />
     </>
   );
 }
