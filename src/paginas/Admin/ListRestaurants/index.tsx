@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import IRestaurante from "../../../interfaces/IRestaurante"
 import { useNavigate } from "react-router-dom";
 import { Banner, Footer, NavBar } from "../../../componentes";
+import styled from "./ListRestaurants.module.scss";
 
 export const ListRestaurants = () => {
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([])
@@ -37,11 +38,12 @@ export const ListRestaurants = () => {
     <>
       <NavBar headers={['home', 'restaurants', "admin"]} />
       <Banner />
-      <section>
+      <section className={styled.Section}>
         <Button
           type="button"
           variant="outlined"
           onClick={() => navigate('/admin/restaurantes/novo')}
+          sx={{ marginTop: "10px" }}
         >
           Cadastrar novo restaurante
         </Button>

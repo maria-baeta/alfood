@@ -1,8 +1,8 @@
-import { Button, TextField } from "@mui/material"
+import { Box, Button, TextField, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Banner, Footer, NavBar } from "../../../componentes"
+import { Banner, NavBar } from "../../../componentes"
 
 export const Restaurant = () => {
   const params = useParams()
@@ -60,9 +60,23 @@ export const Restaurant = () => {
     <>
       <NavBar headers={["admin"]} />
       <Banner />
-      <section>
-        <form onSubmit={event => submitForm(event)}>
+      <Box sx={
+        {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: '10px'
+        }
+      }>
+        <Typography
+          component='h1'
+          variant="h6"
+        >
+          Formulário de Restaurantes
+        </Typography>
+        <Box component='form' onSubmit={event => submitForm(event)}>
           <TextField
+            fullWidth
             id="standard-basic"
             label="Nome do novo restaurante"
             onChange={event => setRestaurant(event.target.value)}
@@ -71,12 +85,14 @@ export const Restaurant = () => {
           />
           <Button
             type="submit"
-            variant="outlined">
+            variant="outlined"
+            fullWidth
+            sx={{ marginTop: "10px" }}
+          >
             Salvar
           </Button>
-        </form>
-      </section>
-      <Footer />
+        </Box>
+      </Box>
     </>
 
   )

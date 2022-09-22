@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { IPaginacao } from '../../interfaces/IPaginacao';
@@ -10,6 +10,7 @@ export const ListaRestaurantes = () => {
 
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([])
   const [nextPage, setNextPage] = useState('')
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     //get dos restaurantes
@@ -30,8 +31,39 @@ export const ListaRestaurantes = () => {
       .catch(error => console.log(error))
   }
 
+  const searchName = () => {
+    axios.get('http://0.0.0.0:8000/api/v1/restaurantes/', {
+      params: {
+        search: search
+      }
+    })
+      .then(({ data }) => {
+        setRestaurants(data.results)
+        setNextPage(data.next)
+      })
+      .catch(error => console.log(error))
+    setSearch('')
+
+  }
+
   return (<section className={style.ListaRestaurantes}>
     <h1>Os restaurantes mais <em>bacanas</em>!</h1>
+    <div>
+      <TextField
+        id="standard-basic"
+        label="Buscar por nome do restaurante"
+        onChange={event => setSearch(event.target.value)}
+        value={search}
+        variant="standard"
+      />
+      <Button
+        type="submit"
+        variant="outlined"
+        onClick={searchName}
+      >
+        Salvar
+      </Button>
+    </div>
     {restaurants?.map(item => <Restaurante restaurante={item} key={item.id} />)}
     {nextPage &&
       <Button

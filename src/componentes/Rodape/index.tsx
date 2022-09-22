@@ -1,7 +1,7 @@
-import estilos from './Rodape.module.scss';
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
-  return (<footer className={estilos.Rodape}>
+  return (<footer className={styles.Footer}>
     <div>
       <p>Copyright &copy; {new Date().getFullYear()} Alfood</p>
     </div>
