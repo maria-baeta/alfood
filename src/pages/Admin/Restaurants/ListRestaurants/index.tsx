@@ -38,6 +38,9 @@ export const ListRestaurants = () => {
         <TableHead>
           <TableRow>
             <TableCell>
+              Id
+            </TableCell>
+            <TableCell>
               Nome
             </TableCell>
             <TableCell>
@@ -48,6 +51,9 @@ export const ListRestaurants = () => {
         <TableBody>
           {restaurants.map(restaurant => (
             <TableRow key={restaurant.id}>
+              <TableCell>
+                {restaurant.id}
+              </TableCell>
               <TableCell>
                 {restaurant.nome}
               </TableCell>

@@ -11,12 +11,10 @@ export const Restaurant = () => {
 
   const getRestaurant = () => {
     if (params.id) {
-      clientV2.get(`http://0.0.0.0:8000/api/v2/restaurantes/${params.id}/`)
+      clientV2.get(`restaurantes/${params.id}/`)
         .then(({ data }) => {
           setRestaurant(data.nome)
         })
-    } else {
-
     }
   }
 

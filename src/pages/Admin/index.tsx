@@ -12,7 +12,7 @@ export const Admin = () => {
           <Toolbar>
             <ArrowBackIosNewOutlinedIcon
               fontSize="small"
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/")}
             />
             <Typography variant="h6">
               Administrador
@@ -26,6 +26,16 @@ export const Admin = () => {
               <Link component={RouterLink} to='/admin/restaurantes/novo'>
                 <Button sx={{ my: 2, color: "white" }}>
                   Novo Restaurante
+                </Button>
+              </Link>
+              <Link component={RouterLink} to='/admin/pratos'>
+                <Button sx={{ my: 2, color: "white" }}>
+                  Pratos
+                </Button>
+              </Link>
+              <Link component={RouterLink} to='/admin/pratos/novo'>
+                <Button sx={{ my: 2, color: "white" }}>
+                  Novo Parto
                 </Button>
               </Link>
             </Box>
