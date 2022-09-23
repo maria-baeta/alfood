@@ -4,10 +4,10 @@ import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { clientV2 } from "../../../../client"
-import IRestaurante from "../../../../interfaces/IRestaurante"
+import IPrato from "../../../../interfaces/IPrato";
 
 export const ListPlates = () => {
-  const [plates, setPlates] = useState<IRestaurante[]>([])
+  const [plates, setPlates] = useState<IPrato[]>([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -25,9 +25,9 @@ export const ListPlates = () => {
   const deletePlate = (id: number) => {
     clientV2.delete(`pratos/${id}/`)
       .then(() => {
-        alert('Restaurante deletado com sucesso')
-        const newListRestaurants = plates.filter(restaurant => restaurant.id !== id)
-        setPlates([...newListRestaurants])
+        alert('Parto deletado com sucesso')
+        const newListPlates = plates.filter(plate => plate.id !== id)
+        setPlates([...newListPlates])
       })
   }
 
